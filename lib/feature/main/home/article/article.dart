@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'article-detail.dart';
+
 class Article extends StatefulWidget {
   @override
   _ArticleState createState() => _ArticleState();
@@ -22,10 +24,15 @@ class _ArticleState extends State<Article> {
                         borderRadius: BorderRadius.circular(18.0),
                         side: BorderSide(color: Colors.white)
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => ArticleDetailPage()),
+                      );
+                    },
                     color: Colors.white,
                     textColor: Colors.white,
-                    child: Image.network('https://cdnhonda.azureedge.net/uploads/contentelement/53628.JPG',
+                    child: Image.network('https://cdn.akurat.co/images/uploads/images/akurat_20201110093144_0Pm5v0.jpg',
                       width: 210,
                       height: 140,
                       fit: BoxFit.fill,
@@ -48,7 +55,7 @@ class _ArticleState extends State<Article> {
                     onPressed: () {},
                     color: Colors.white,
                     textColor: Colors.white,
-                    child: Image.network('https://cdnhonda.azureedge.net/uploads/contentelement/82029.jpeg',
+                    child: Image.network('https://www.balipost.com/wp-content/uploads/2020/11/balipostcom_motor-honda-paling-direkomendasi-masyarakat_01.jpg',
                       width: 210,
                       height: 140,
                       fit: BoxFit.fill,
@@ -71,7 +78,7 @@ class _ArticleState extends State<Article> {
                     onPressed: () {},
                     color: Colors.white,
                     textColor: Colors.white,
-                    child: Image.network('https://cdnhonda.azureedge.net/uploads/contentelement/93412.jpg',
+                    child: Image.network('https://lh3.googleusercontent.com/proxy/NGUA_NkVgSlx1eOyPg9xoCnTGD-62XHXWOl2xrMsT3aIa3UK7-7UF8mUCjGJY2giMry6GwIHXwDp09EzW3HsCvgI',
                       width: 210,
                       height: 140,
                       fit: BoxFit.fill,
@@ -85,12 +92,10 @@ class _ArticleState extends State<Article> {
                 ],
               ),
             ]
-        )
+        ),
     );
   }
 }
-
-
 // class Article extends StatelessWidget {
 //
 //   List<_ArticlePhoto> _article() {
@@ -119,6 +124,7 @@ class _ArticleState extends State<Article> {
 //             scrollDirection: Axis.horizontal,
 //             padding: EdgeInsets.all(10.0),
 //             children: _article().map<Widget> ( (photo) {
+
 //               return _ArticleGridItem(featurePhoto: photo);//Feature(photo);
 //             }).toList()
 //         )

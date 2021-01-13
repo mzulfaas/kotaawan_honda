@@ -4,6 +4,7 @@ import 'package:kotaawan/feature/main/main-page.dart';
 import 'package:kotaawan/feature/main/profile/profile-page.dart';
 import 'package:kotaawan/feature/register/register-page-alt.dart';
 import 'package:kotaawan/feature/register/register-page.dart';
+import 'package:kotaawan/forgot-password/forgot-password.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -121,6 +122,12 @@ class _LoginPageState extends State<LoginPage> {
               ),
               SizedBox(height: 30,),
               GestureDetector(
+                onTap: (){
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => ForgotPasswordPage()),
+                  );
+                },
                 child: Text("Lupa Password >>",
                   style: TextStyle(
                     fontSize: 17,

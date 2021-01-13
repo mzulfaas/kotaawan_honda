@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kotaawan/feature/main/home/product/detail-product.dart';
 
 class NewProduct extends StatefulWidget {
   @override
@@ -21,7 +22,12 @@ class _NewProductState extends State<NewProduct> {
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(18.0),
                         side: BorderSide(color: Colors.white)),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => ProductDetailPage()),
+                      );
+                    },
                     color: Colors.white,
                     textColor: Colors.white,
                     child: Image.network('https://cf.shopee.co.id/file/7c1b1954e1fcd6b62ae291f2fd264d18',

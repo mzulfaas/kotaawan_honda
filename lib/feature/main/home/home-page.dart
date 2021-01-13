@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:group_button/group_button.dart';
 import 'package:kotaawan/feature/main/home/group-button-service.dart';
-import 'package:kotaawan/feature/main/home/new-product.dart';
+import 'file:///C:/Users/Zulfa/Documents/Android%20Studio%20Project/kotaawan/lib/feature/main/home/product/new-product.dart';
 import 'package:kotaawan/feature/main/home/news-update.dart';
-import 'article.dart';
+import 'article/article.dart';
 
 class HomePage extends StatefulWidget {
   @override

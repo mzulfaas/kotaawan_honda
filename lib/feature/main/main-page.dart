@@ -28,6 +28,7 @@ class _MainPageState extends State<MainPage> {
   ];
   @override
   Widget build(BuildContext context) {
+    print("Ini bottom nav");
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
@@ -39,7 +40,7 @@ class _MainPageState extends State<MainPage> {
             selectedIconTheme: IconThemeData(color: Colors.red[600]),
             currentIndex: _selectedItemIndex,
             type: BottomNavigationBarType.fixed,
-            onTap: (int index) {
+            onTap: (int index) {  
               setState(() {
                 _selectedItemIndex = index;
               });

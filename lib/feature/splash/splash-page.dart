@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kotaawan/feature/login/login-page-alt.dart';
 import 'package:kotaawan/feature/login/login-page.dart';
 import 'package:splashscreen/splashscreen.dart';
 
@@ -7,7 +8,7 @@ class SplashPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return new SplashScreen(
         seconds: 10,
-        navigateAfterSeconds: new LoginPageS(),
+        navigateAfterSeconds: new LoginPage(),
         title: new Text('Welcome In Honda Mobile Apps',
           style: new TextStyle(
               fontWeight: FontWeight.bold,
