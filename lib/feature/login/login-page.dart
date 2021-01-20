@@ -1,9 +1,12 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kotaawan/domain/authentication-service.dart';
 import 'package:kotaawan/feature/main/profile/profile-page.dart';
 import 'package:kotaawan/feature/register/register-page-alt.dart';
 import 'package:kotaawan/feature/register/register-page.dart';
+import 'package:http/http.dart' as http;
 
 class LoginPageS extends StatefulWidget {
   @override
@@ -13,8 +16,19 @@ class LoginPageS extends StatefulWidget {
 class _LoginPageSState extends State<LoginPageS> {
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passController = TextEditingController();
+  String txtMsg = '';
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
+  Future<List> processLogin() async {
+    var jsonLogin = await http.post(
+        "https://istana.kotaawan.com/api/login/${_emailController.text}/${_passController.text}");
+    var dataLogin = json.decode(jsonLogin.body);
+
+    setState(() {
+      txtMsg = dataLogin['status'].toString();
+    });
+  }
 
   @override
   Widget build(BuildContext context) {

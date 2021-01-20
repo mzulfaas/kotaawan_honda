@@ -1,4 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:kotaawan/Point/Point-Page.dart';
+import 'package:kotaawan/feature/main/home/bam-promotion/bam-promotion.dart';
+import 'package:kotaawan/feature/main/home/bam-sparepart/bam-sparepart.dart';
+import 'package:kotaawan/feature/main/home/booking-service/booking-service.dart';
+import 'file:///C:/Users/Zulfa/Documents/Android%20Studio%20Project/kotaawan/lib/feature/main/home/visiting-service/visiting-service.dart';
+import 'package:kotaawan/feature/main/home/history-service/history-service.dart';
 
 class GroupButtonService extends StatefulWidget {
   @override
@@ -19,7 +25,12 @@ class _GroupButtonServiceState extends State<GroupButtonService> {
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(18.0),
                       side: BorderSide(color: Colors.red)),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => BookingServicePage()),
+                    );
+                  },
                   color: Colors.red,
                   textColor: Colors.white,
                   child: Text("Booking \nService",
@@ -30,9 +41,15 @@ class _GroupButtonServiceState extends State<GroupButtonService> {
                 SizedBox(width: 10),
                 RaisedButton(
                   shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(18.0),
+                      borderRadius: BorderRadius.circular(20,),
                       side: BorderSide(color: Colors.red)),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => VisitingServicePage()
+                        ),
+                    );
+                  },
                   color: Colors.red,
                   textColor: Colors.white,
                   child: Text("Service \nKunjungan",
@@ -45,7 +62,13 @@ class _GroupButtonServiceState extends State<GroupButtonService> {
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(18.0),
                       side: BorderSide(color: Colors.red)),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => HistoryServicePage()),
+                    );
+                  },
                   color: Colors.red,
                   textColor: Colors.white,
                   child: Text("Riwayat \nService",
@@ -64,7 +87,13 @@ class _GroupButtonServiceState extends State<GroupButtonService> {
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(18.0),
                       side: BorderSide(color: Colors.red)),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => BamSparepartPage()
+                        ),
+                    );
+                  },
                   color: Colors.red,
                   textColor: Colors.white,
                   child: Text("BAM \nSparepart",
@@ -77,7 +106,13 @@ class _GroupButtonServiceState extends State<GroupButtonService> {
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(18.0),
                       side: BorderSide(color: Colors.red)),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => BamPromotionPage()
+                        ),
+                    );
+                  },
                   color: Colors.red,
                   textColor: Colors.white,
                   child: Text("BAM \nPomotion",
@@ -90,7 +125,12 @@ class _GroupButtonServiceState extends State<GroupButtonService> {
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(18.0),
                       side: BorderSide(color: Colors.red)),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => PointPage()),
+                    );
+                  },
                   color: Colors.red,
                   textColor: Colors.white,
                   child: Text("1000 \nPoint",

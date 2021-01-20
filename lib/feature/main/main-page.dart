@@ -1,15 +1,15 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'file:///C:/Users/Zulfa/Documents/Android%20Studio%20Project/kotaawan/lib/feature/cart/cart-page.dart';
-import 'package:kotaawan/feature/chat/chat-page.dart';
+import 'cart/cart-page.dart';
+import 'file:///C:/Users/Zulfa/Documents/Android%20Studio%20Project/kotaawan/lib/feature/main/chat/chat-page.dart';
 import 'package:kotaawan/feature/main/home/home-page.dart';
 import 'package:kotaawan/feature/main/profile/profile-page.dart';
-import 'package:kotaawan/feature/notification/notification-page.dart';
-import 'package:kotaawan/feature/setting/setting-page.dart';
+import 'file:///C:/Users/Zulfa/Documents/Android%20Studio%20Project/kotaawan/lib/feature/main/notification/notification-page.dart';
+import 'file:///C:/Users/Zulfa/Documents/Android%20Studio%20Project/kotaawan/lib/feature/main/setting/setting-page.dart';
 
 class MainPage extends StatefulWidget {
-  final FirebaseUser user;
-  MainPage({Key key, this.user}) : super(key: key);
+  String email;
+  MainPage({Key key, this.email}) : super(key: key);
 
   @override
   _MainPageState createState() => _MainPageState();
@@ -18,16 +18,19 @@ class MainPage extends StatefulWidget {
 /// This is the private State class that goes with MyStatefulWidget.
 class _MainPageState extends State<MainPage> {
   int _selectedItemIndex = 0;
-  final List pages = [
-    HomePage(),
-    SettingPage(),
-    NotificationPage(),
-    ChatPage(),
-    CartPage(),
-    ProfilePage(),
-  ];
+
   @override
   Widget build(BuildContext context) {
+
+    final List pages = [
+      HomePage(email: widget.email,),
+      SettingPage(),
+      NotificationPage(),
+      ChatPage(),
+      CartPage(),
+      ProfilePage(),
+    ];
+
     print("Ini bottom nav");
     return MaterialApp(
       debugShowCheckedModeBanner: false,

@@ -9,11 +9,13 @@ import 'feature/main/home/home-page.dart';
 import 'feature/main/main-page.dart';
 import 'feature/splash/splash-page.dart';
 
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   // await Firebase.initializeApp();
   runApp(MyApp());
 }
+
 
 class MyApp extends StatelessWidget {
   @override
@@ -24,7 +26,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       debugShowCheckedModeBanner: false,
-      home: MainPage(),
+      home: SplashPage(),
       // home: SplashPage(),
     );
   }

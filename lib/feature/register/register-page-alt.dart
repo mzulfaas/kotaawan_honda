@@ -139,7 +139,7 @@ class _RegisterPageState extends State<RegisterPage> {
                             context,
                             MaterialPageRoute(
                                 builder: (context) => MainPage(
-                                  user: result.user,
+                                  // email: result.user,
                                 )));
                       } else {
                         // Show Dialog

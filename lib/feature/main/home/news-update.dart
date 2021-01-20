@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class NewsUPdate extends StatefulWidget {
@@ -9,11 +10,12 @@ class _NewsUPdateState extends State<NewsUPdate> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: EdgeInsets.all(10),
         height: 200,
         width: 220,
         child: ListView(
             scrollDirection: Axis.vertical,
-            padding: EdgeInsets.all(10.0),
+            // padding: EdgeInsets.all(10.0),
             children: <Widget>[
               InkWell(
                 child: Padding(
@@ -27,7 +29,7 @@ class _NewsUPdateState extends State<NewsUPdate> {
                   ),
                 ),
               ),
-              SizedBox(width: 10),
+              SizedBox(height: 10),
               InkWell(
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(8,0,0,0),
@@ -40,7 +42,7 @@ class _NewsUPdateState extends State<NewsUPdate> {
                   ),
                 ),
               ),
-              SizedBox(width: 10),
+              SizedBox(height: 10),
               InkWell(
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(8,0,0,0),

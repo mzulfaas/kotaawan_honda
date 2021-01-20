@@ -6,6 +6,9 @@ import 'package:kotaawan/feature/main/home/news-update.dart';
 import 'article/article.dart';
 
 class HomePage extends StatefulWidget {
+
+  String email;
+  HomePage({this.email});
   @override
   _HomePageState createState() => _HomePageState();
 }
@@ -16,7 +19,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Sutikno Sofjan',
+          widget.email,
           style: TextStyle(
             color: Colors.black,
           ),

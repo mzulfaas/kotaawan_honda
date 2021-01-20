@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:kotaawan/domain/authentication-service.dart';
 import 'package:kotaawan/feature/main/main-page.dart';
@@ -5,6 +6,8 @@ import 'package:kotaawan/feature/main/profile/profile-page.dart';
 import 'package:kotaawan/feature/register/register-page-alt.dart';
 import 'package:kotaawan/feature/register/register-page.dart';
 import 'package:kotaawan/forgot-password/forgot-password.dart';
+import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -14,8 +17,54 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passController = TextEditingController();
+  String txtMsg = '';
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
+
+  Future<List> processLogin(String email, String password) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    var tokenID = prefs.getString("tokenID");
+    var jsonLogin = await http.post(
+        "https://dealer.kotaawan.com/ajax/getlogin/${tokenID}/${email}/${password}");
+    // print(jsonLogin);
+        // "https://dealer.kotaawan.com/ajax/getlogin/12345${responseJson['tokenID']}/${_emailController.text}/${_passController.text}");
+        // "https://istana.kotaawan.com/api/login/${_emailController.text}/${_passController.text}");
+    var dataLogin = json.decode(jsonLogin.body);
+
+    if (dataLogin['status'] == 1 ) {
+      print("ini button login");
+      prefs.setString("SessionID", dataLogin['sessionID']);
+      prefs.setString("email", email);
+      // Go to Profile Page
+      Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => MainPage(
+                email: email,
+              )));
+    } else {
+      // Show Dialog
+      showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+            title: Text('Error'),
+            content: Text("Gagal Login"),
+            actions: <Widget>[
+              FlatButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: Text('OK'),
+              )
+            ],
+          ));
+    }
+    setState(() {
+      txtMsg = dataLogin['status'].toString();
+    });
+    print(dataLogin);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -80,35 +129,12 @@ class _LoginPageState extends State<LoginPage> {
                   color: Colors.red,
                   onPressed: () async{
                     if (_formKey.currentState.validate()) {
-                      SignInSignUpResult result = await AuthenticationService.signInWithEmail(
-                          email: _emailController.text, pass: _passController.text);
-
-                      if (result.user != null) {
-                        print("ini button login");
-                        // Go to Profile Page
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => MainPage(
-                                  user: result.user,
-                                )));
-                      } else {
-                        // Show Dialog
-                        showDialog(
-                            context: context,
-                            builder: (context) => AlertDialog(
-                              title: Text('Error'),
-                              content: Text(result.message),
-                              actions: <Widget>[
-                                FlatButton(
-                                  onPressed: () {
-                                    Navigator.pop(context);
-                                  },
-                                  child: Text('OK'),
-                                )
-                              ],
-                            ));
-                      }
+                      print("Ini proses login");
+                      processLogin(_emailController.text, _passController.text);
+                      // SignInSignUpResult result = await AuthenticationService.signInWithEmail
+                      //   (
+                          // email: _emailController.text, pass: _passController.text);
+                      bool isSuccessLogin = true;
                     }
                   },
                   child: Text(
@@ -151,7 +177,7 @@ class _LoginPageState extends State<LoginPage> {
                     color: Colors.red,
                   ),
                 ),
-              )
+              ),
             ],
           ),
         ),
