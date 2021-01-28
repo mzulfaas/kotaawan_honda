@@ -57,10 +57,6 @@ class _NewProductState extends State<NewProduct> {
                                   name: item.name,
                                   description: item.description,
                                   price: item.price,
-                                  // img: responseData[i].img,
-                                  // name: responseData[i].name,
-                                  // description: responseData[i].description,
-                                  // price: responseData[i].price,
                                 )),
                               );
                             },
@@ -87,11 +83,10 @@ class _NewProductState extends State<NewProduct> {
                       children: widgetss,
                   );
                 }
-              }else {
+              }
                 return Center(
                   child: CircularProgressIndicator()
                 );
-              }
             }
           ),
         )
