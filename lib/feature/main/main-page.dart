@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'cart/cart-page.dart';
 import 'file:///C:/Users/Zulfa/Documents/Android%20Studio%20Project/kotaawan/lib/feature/main/chat/chat-page.dart';
@@ -36,7 +35,7 @@ class _MainPageState extends State<MainPage> {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
           bottomNavigationBar: BottomNavigationBar(
-            elevation: 0,
+            elevation: 50,
             backgroundColor: Color(0xFFF0F0F0),
             unselectedItemColor: Colors.black,
             selectedItemColor: Colors.red,

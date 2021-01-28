@@ -14,8 +14,6 @@ class _RegisterPageState extends State<RegisterPage> {
   TextEditingController _noHpController = TextEditingController();
   TextEditingController _referralController = TextEditingController();
 
-
-
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
@@ -129,10 +127,10 @@ class _RegisterPageState extends State<RegisterPage> {
                   color: Colors.red,
                   onPressed: () async{
                     if (_formKey.currentState.validate()) {
-                      SignInSignUpResult result = await AuthenticationService.createUser(
-                          email: _emailController.text, pass: _passController.text, confpass: _confPassController.text, noHP: _noHpController.text, referral: _referralController.text);
+                      // SignInSignUpResult result = await AuthenticationService.createUser(
+                      //     email: _emailController.text, pass: _passController.text, confpass: _confPassController.text, noHP: _noHpController.text, referral: _referralController.text);
 
-                      if (result.user != null) {
+                      if (  null) {
                         print("ini button Register");
                         // Go to Profile Page
                         Navigator.push(
@@ -147,7 +145,7 @@ class _RegisterPageState extends State<RegisterPage> {
                             context: context,
                             builder: (context) => AlertDialog(
                               title: Text('Error'),
-                              content: Text(result.message),
+                              content: Text("Waduh eror"),
                               actions: <Widget>[
                                 FlatButton(
                                   onPressed: () {
@@ -169,32 +167,6 @@ class _RegisterPageState extends State<RegisterPage> {
                   ),
                 ),
               ),
-              // SizedBox(height: 30,),
-              // GestureDetector(
-              //   child: Text("Lupa Password >>",
-              //     style: TextStyle(
-              //       fontSize: 17,
-              //       color: Colors.red,
-              //     ),
-              //     textAlign: TextAlign.right,),
-              // ),
-              // SizedBox(height: 10,),
-              // GestureDetector(
-              //   onTap: () {
-              //     // Navigator.push(
-              //     //   context,
-              //     //   MaterialPageRoute(builder: (context) => ()),
-              //     // );
-              //   },
-              //   child: Text(
-              //     "Registrasi >>",
-              //     textAlign: TextAlign.right,
-              //     style: TextStyle(
-              //       fontSize: 17,
-              //       color: Colors.red,
-              //     ),
-              //   ),
-              // )
             ],
           ),
         ),

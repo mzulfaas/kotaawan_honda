@@ -1,13 +1,12 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:kotaawan/domain/authentication-service.dart';
 import 'package:kotaawan/feature/login/login-page-alt.dart';
 import 'package:kotaawan/feature/login/login-page.dart';
 
 class ProfilePage extends StatelessWidget {
-  final FirebaseUser user;
+  // final FirebaseUser user;
 
-  ProfilePage({this.user});
+  // ProfilePage({this.user});
 
   final TextEditingController _uidController = TextEditingController();
   final TextEditingController _nameController = TextEditingController();
@@ -16,10 +15,10 @@ class ProfilePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    _uidController.text = user.uid;
-    _nameController.text = user.displayName ?? '-';
-    _emailController.text = user.email;
-    _phoneController.text = user.phoneNumber ?? '-';
+    // _uidController.text = user.uid;
+    // _nameController.text = user.displayName ?? '-';
+    // _emailController.text = user.email;
+    // _phoneController.text = user.phoneNumber ?? '-';
     return Scaffold(
       body: Container(
         color: Color(0xFF5cc3fd),
@@ -193,7 +192,7 @@ class ProfilePage extends StatelessWidget {
                           // AuthenticationService.signOutGoogle();
 
                           // sign out
-                          AuthenticationService.signOut();
+                          // AuthenticationService.signOut();
 
                           // go to login page
                           Navigator.pushAndRemoveUntil(
