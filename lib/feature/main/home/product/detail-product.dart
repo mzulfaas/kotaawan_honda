@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:kotaawan/feature/main/home/cicilan/cicilan-page.dart';
 import 'package:kotaawan/model/product.dart';
 import 'package:http/http.dart' as http;
 
@@ -80,19 +81,19 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                   scrollDirection: Axis.horizontal,
                   children: [
                     Container(
-                      child: Image.network('https://cf.shopee.co.id/file/7c1b1954e1fcd6b62ae291f2fd264d18'),
+                      child: Image.network("https://dealer.kotaawan.com/img/articles/${widget.img}"),
                     ),
                     SizedBox(width: 10,),
                     Container(
-                      child: Image.network('https://cf.shopee.co.id/file/7c1b1954e1fcd6b62ae291f2fd264d18'),
+                      child: Image.network("https://dealer.kotaawan.com/img/articles/${widget.img}"),
                     ),
                     SizedBox(width: 10,),
                     Container(
-                      child: Image.network('https://cf.shopee.co.id/file/7c1b1954e1fcd6b62ae291f2fd264d18'),
+                      child: Image.network("https://dealer.kotaawan.com/img/articles/${widget.img}"),
                     ),
                     SizedBox(width: 10,),
                     Container(
-                      child: Image.network('https://cf.shopee.co.id/file/7c1b1954e1fcd6b62ae291f2fd264d18'),
+                      child: Image.network("https://dealer.kotaawan.com/img/articles/${widget.img}"),
                     ),
                   ],
                 ),
@@ -101,7 +102,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
               Container(
                 padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
                 child: Text(
-                  '${widget.name} \nIDR ${widget.price}',
+                  '${widget.name}',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: Colors.black54,
@@ -120,18 +121,80 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                 ),
               ),
               SizedBox(height: 20,),
-              GestureDetector(
-                onTap: () {
-                },
+              Container(
+                padding: EdgeInsets.only(right: 30),
+                alignment: Alignment.centerRight,
                 child: Text(
-                  "Lihat Produk Lainya",
+                  'Harga OTR : RP ${widget.price}',
                   textAlign: TextAlign.right,
                   style: TextStyle(
-                    fontSize: 15,
-                    color: Colors.red,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                    // fontSize: 20,
                   ),
                 ),
               ),
+              SizedBox(height: 10,),
+              Container(
+                padding: EdgeInsets.only(right: 30),
+                alignment: Alignment.centerRight,
+                child: RaisedButton(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(18.0),
+                      side: BorderSide(color: Colors.red)),
+                  onPressed: () {
+                    // Navigator.push(
+                    //   context,
+                    //   MaterialPageRoute(builder: (context) => BookingServicePage()),
+                    // );
+                  },
+                  color: Colors.red,
+                  textColor: Colors.white,
+                  child: Text("Ingin Tanya \n Lebih Lanjut",
+                    style: TextStyle(fontSize: 14),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              ),
+              SizedBox(height: 10,),
+              Container(
+                padding: EdgeInsets.only(right: 30),
+                alignment: Alignment.centerRight,
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => CicilanPage()),
+                    );
+                  },
+                  child: Text(
+                    "Simulasi Cicilan",
+                    textAlign: TextAlign.left,
+                    style: TextStyle(
+                      fontSize: 15,
+                      color: Colors.red,
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(height: 10,),
+              Container(
+                alignment: Alignment.bottomLeft,
+                padding: EdgeInsets.only(left: 30),
+                child: GestureDetector(
+                  onTap: () {
+                  },
+                  child: Text(
+                    "Lihat Produk Lainya",
+                    textAlign: TextAlign.left,
+                    style: TextStyle(
+                      fontSize: 15,
+                      color: Colors.red,
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(height: 20,),
             ],
           ),
         ),

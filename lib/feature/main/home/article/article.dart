@@ -42,34 +42,42 @@ class _ArticleState extends State<Article> {
                   var item =responseData[i];
                   widgetss;
                   widgetss.add(
-                    Column(
-                      children: [
-                        RaisedButton(
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(18.0),
-                              side: BorderSide(color: Colors.white)
+                    SizedBox(
+                      width: 255,
+                      child: Column(
+                        children: [
+                          RaisedButton(
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(18.0),
+                                side: BorderSide(color: Colors.white)
+                            ),
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => ArticleDetailPage(
+                                  img: item.img,
+                                  name: item.name,
+                                  description: item.description,
+                                  price: item.price,
+                                )),
+                              );
+                            },
+                            color: Colors.white,
+                            textColor: Colors.white,
+                            child: Image.network("https://dealer.kotaawan.com/img/articles/${item.img}",
+                              width: 210,
+                              height: 140,
+                              fit: BoxFit.fill,
+                            ),
                           ),
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context) => ArticleDetailPage()),
-                            );
-                          },
-                          color: Colors.white,
-                          textColor: Colors.white,
-                          child: Image.network("https://dealer.kotaawan.com/img/articles/${item.img}",
-                            width: 210,
-                            height: 140,
-                            fit: BoxFit.fill,
+                          SizedBox(height: 8,),
+                          Text(
+                            '${item.name}',
+                            textAlign: TextAlign.center,
                           ),
-                        ),
-                        SizedBox(height: 8,),
-                        Text(
-                          '${item.name} \nIDR ${item.price}',
-                          textAlign: TextAlign.center,
-                        )
-                      ],
-                    )
+                        ],
+                      ),
+                    ),
                   );
                 }
                 return ListView(
