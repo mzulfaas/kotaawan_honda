@@ -45,6 +45,7 @@ class _HomePageState extends State<HomePage> {
           ),
           NewProduct(),
           GroupButtonService(),
+          SizedBox(height: 20,),
           Padding(
             padding: const EdgeInsets.fromLTRB(20,0,0,0),
             child: Text(

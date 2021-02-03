@@ -156,11 +156,9 @@ class _ArticleListPageState extends State<ArticleListPage> {
                             padding: EdgeInsets.all(10.0),
                             children: widgetss);
                       }
-                    } else {
-                      return Center(
+                    } return Center(
                         child: CircularProgressIndicator(),
                       );
-                    }
                   }),
             ),
           ),

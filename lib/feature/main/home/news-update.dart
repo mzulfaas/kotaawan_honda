@@ -30,7 +30,7 @@ class _NewsUPdateState extends State<NewsUPdate> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        padding: EdgeInsets.all(10),
+        padding: EdgeInsets.fromLTRB(0,0,10,10),
         height: 200,
         width: 220,
         child: FutureBuilder<Product>(
@@ -44,24 +44,18 @@ class _NewsUPdateState extends State<NewsUPdate> {
                     var item = responseData[i];
                     widgetss;
                     widgetss.add(
-                        ListView(
-                            scrollDirection: Axis.vertical,
-                            children: <Widget>[
                               InkWell(
                                 child: Padding(
-                                  padding: const EdgeInsets.fromLTRB(8, 0, 0, 0),
+                                  padding: const EdgeInsets.all(8),
                                   child: Text(
                                     '${item.date} - ${item.name}',
-                                textAlign: TextAlign.left,
-                                style: TextStyle(
-                                  fontSize: 12,
+                                    textAlign: TextAlign.left,
+                                    style: TextStyle(
+                                      fontSize: 15,
+                                    ),
+                                  ),
                                 ),
                               ),
-                            ),
-                          ),
-                          SizedBox(height: 10),
-                        ]
-                        )
                     );
                   }
                   return ListView(
@@ -69,12 +63,11 @@ class _NewsUPdateState extends State<NewsUPdate> {
                     padding: EdgeInsets.all(10.0),
                     children: widgetss,
                   );
-                }else {
-                  return Center(
-                    child: CircularProgressIndicator(),
-                  );
                 }
               }
+              return Center(
+                child: CircularProgressIndicator(),
+              );
             }
             )
     );
